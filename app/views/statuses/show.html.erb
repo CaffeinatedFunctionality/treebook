@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @status.name %>
+  <b>Content:</b>
+  <%= @status.user.full_name %>
 </p>
 
 <p>
@@ -10,10 +10,6 @@
   <%= @status.content %>
 </p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @status.text %>
-</p>
 
 <%= link_to 'Edit', edit_status_path(@status) %> |
 <%= link_to 'Back', statuses_path %>
