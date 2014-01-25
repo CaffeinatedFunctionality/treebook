@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def flash_class(type)
-		case object
+		case type
 		when :alert
 			"alert-warning"
 		when :notice
