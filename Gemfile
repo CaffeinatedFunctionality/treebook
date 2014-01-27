@@ -11,6 +11,7 @@ group :production do
 	gem 'pg'
 end
 
+gem 'rails_12factor'
 gem 'devise'
 gem 'simple_form'
 
