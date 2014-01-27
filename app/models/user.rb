@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   							uniqueness: true, 
   							format: { with: /\A[a-zA-Z0-9_-]+\z/,
   							message: 'Must be formatted correctly'}
+  validates :avatar, presence: true           
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"          
+  
   def full_name
   	first_name + " " + last_name
   end	       

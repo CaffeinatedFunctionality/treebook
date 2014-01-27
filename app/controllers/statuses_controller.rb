@@ -6,20 +6,25 @@ class StatusesController < ApplicationController
   # GET /statuses.json
   def index
     @statuses = Status.all
+    @user = current_user
   end
 
   # GET /statuses/1
   # GET /statuses/1.json
   def show
+    @status = Status.find(params[:id])
+    
   end
 
   # GET /statuses/new
   def new
     @status = Status.new
+    @user = current_user
   end
 
   # GET /statuses/1/edit
   def edit
+
   end
 
   # POST /statuses
