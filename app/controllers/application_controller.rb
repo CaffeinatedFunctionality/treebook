@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :profile_name, :remember_me, :avatar) }
-    devise_parameter_sanitizer.for(:user) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :profile_name, :remember_me, :avatar) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :profile_name, :remember_me) }
+    devise_parameter_sanitizer.for(:user) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :profile_name, :remember_me) }  
   end
 
   def create
@@ -20,7 +20,10 @@ class ApplicationController < ActionController::Base
   # Be sure to update your create() and update() controller methods.
 
   def user_params
-	params.require(:user).permit(:avatar)
+	 params.require(:user).permit(:avatar)
   end
+
+  def user_friendship_params
+    params.require(:user_friendship).permit(:user, :friend, :user_id, :friend_id)
 
 end
